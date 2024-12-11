@@ -1,0 +1,93 @@
+.chart-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.chart-container {
+    width: 30%;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.info-section {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+
+.movie-card {
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.rating-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #ffcc00;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+.movie-text-body {
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    /*height: 350px;*/
+    box-sizing: border-box;
+}
+
+.right-cont {
+    background-color: #ffcc00;
+    /*width: 100%;*/
+}
+
+
+.custom-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.custom-form select {
+    flex-grow: 1;
+    height: 40px;
+}
+.custom-form button {
+    margin-left: 10px;
+    height: 40px;
+}
+
+.form-select {
+    flex-grow: 1;
+    height: 40px;
+    width: 100%;
+    margin-right: 10px;
+}
+.movie-poster {
+    max-width: 150px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.header-title {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+}
+p {
+    margin: 3px 0;
+}
+

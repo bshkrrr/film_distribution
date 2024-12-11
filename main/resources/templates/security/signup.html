@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/css/security_style.css">
+</head>
+<body>
+<div class="white-container">
+    <h1>Регистрация</h1>
+    <form action="/signup" th:object="${user}" method="post" class="form">
+
+        <div class="input-group">
+            <label for="username">Логин</label>
+            <input type="text" id="username" th:field="*{username}" class="form-control" placeholder="Введите ваш логин" required>
+            <div th:if="${usernameError != null}" class="error-message">
+                <p th:text="${usernameError}"></p>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" th:field="*{password}" placeholder="Введите ваш пароль" required>
+            <div th:if="${passwordError != null}" class="error-message">
+                <p th:text="${passwordError}"></p>
+            </div>
+        </div>
+
+        <button type="submit" class="btn">Зарегистрироваться</button>
+
+    </form>
+
+    <div class="login-link">
+        <p>Уже есть аккаунт? <a href="/login">Войти</a></p>
+    </div>
+</div>
+</body>
+</html>

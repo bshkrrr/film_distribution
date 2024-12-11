@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Информационно-справочная система кинопроката</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/author_style.css">
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <a class="navbar-brand custom-navbar-brand" href="#">Кинопрокат</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/main">Главная</a>
+                </li>
+
+                <li class="nav-item" th:if="${role == 'ADMIN'}">
+                    <a class="nav-link" href="/admin/database">База данных</a>
+                </li>
+
+                <li class="nav-item" th:if="${role == 'ADMIN'}">
+                    <a class="nav-link" href="/admin/new">Добавить фильм</a>
+                </li>
+
+                <li class="nav-item" th:if="${role == 'ADMIN'}">
+                    <a class="nav-link" href="/admin/analytics">Аналитика</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Об авторе</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-flex">
+            <div th:if="${isAuthenticated}">
+                <form th:action="@{/logout}" method="post">
+                    <button class="btn btn-white-blue" type="submit">Выйти</button>
+                </form>
+            </div>
+
+            <div th:if="${!isAuthenticated}">
+                <a class="btn btn-blue-white" href="/login">Войти</a>
+                <a class="btn btn-white-blue" href="/signup">Зарегистрироваться</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="info-card mx-auto mt-5">
+    <div class="text-center">
+        <h3 class="mb-3">Финансовый университет при Правительстве Российской Федерации</h3>
+    </div>
+
+    <div class="text-center mt-5">
+        <h5>Курсовая работа</h5>
+        <p class="mt-2"><strong>«Информационно-справочная система кинопроката»</strong></p>
+        <p>по дисциплине: <em>Современные технологии программирования</em></p>
+    </div>
+
+    <div class="mt-4">
+        <p><strong>Научный руководитель:</strong></p>
+        <ul class="list-unstyled text-start mx-auto" style="max-width: 600px;">
+            <li><strong>Эбрахим Али</strong></li>
+        </ul>
+    </div>
+
+    <div class="mt-4">
+        <p><strong>Выполнила:</strong></p>
+        <ul class="list-unstyled text-start mx-auto" style="max-width: 600px;">
+            <li><strong>Бушуева Кристина</strong></li>
+            <li>Факультет информационных технологий и анализа больших данных</li>
+            <li>Прикладные информационные системы в экономике и финансах (ПИ22-4)</li>
+        </ul>
+    </div>
+
+    <div class="mt-4">
+        <p><strong>Контактные данные:</strong></p>
+        <ul class="list-unstyled text-start mx-auto" style="max-width: 600px;">
+            <li>Email: <a href="mailto:222693@edu.fa.ru">222693@edu.fa.ru</a></li>
+        </ul>
+    </div>
+
+    <div class="mt-4">
+        <p><strong>О проекте:</strong></p>
+        <p>Веб-приложениее кинопроката созданно с использованием самых передовых технологий - Spring Boot, Spring Security, Thymeleaf и MySQL. Легкий и удобный интерфейс позволяет без усилий искать, фильтровать и просматривать фильмы, а административная панель обеспечивает удобное управление базой данных. Будь то развлечение или управление контентом, наш сервис гарантирует безопасность, надежность и простоту в использовании. <em><span style="color: #ff6a00;">Получите доступ к миру кино с одним кликом!</span></em></p>
+    </div>
+
+    <div class="mt-4">
+        <p><strong>Даты работы над проектом:</strong></p>
+        <ul class="list-unstyled text-start mx-auto" style="max-width: 600px;">
+            <li><strong>Начало работы:</strong> Сентябрь 2024</li>
+            <li><strong>Завершение работы:</strong> Декабрь 2024</li>
+        </ul>
+    </div>
+</div>
+
+<footer class="bg-light text-center text-lg-start mt-5">
+    <div class="text-center p-3" style="background-color: #f8f9fa; border-top: 1px solid #dee2e6;">г. Москва, 2024</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование фильма</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/css/new-edit_style.css">
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <a class="navbar-brand custom-navbar-brand" href="#">Кинопрокат</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/main">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/database">База данных</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/new">Добавить фильм</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/analytics">Аналитика</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Об авторе</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-flex">
+            <form th:action="@{/logout}" method="post">
+                <button class="btn btn-white-blue" type="submit">Выйти</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h2 class="title" style="text-align: center">Редактирование фильма</h2>
+    <form action="#" th:action="@{/admin/save}" th:object="${movie}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="d-flex">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Название:</label>
+                    <input type="text" id="title" th:field="*{title}" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Жанр:</label>
+                    <select id="genre" th:field="*{genre}" class="form-select">
+                        <option value="Боевик">Боевик</option>
+                        <option value="Драма">Драма</option>
+                        <option value="Комедия">Комедия</option>
+                        <option value="Ужасы">Ужасы</option>
+                        <option value="Фэнтези">Фэнтези</option>
+                        <option value="Романтика">Романтика</option>
+                        <option value="Приключения">Приключения</option>
+                        <option value="Научная фантастика">Научная фантастика</option>
+                        <option value="Документальный">Документальный</option>
+                        <option value="Биография">Биография</option>
+                        <option value="Триллер">Триллер</option>
+                        <option value="Детектив">Детектив</option>
+                        <option value="Исторический">Исторический</option>
+                        <option value="Военный">Военный</option>
+                        <option value="Вестерн">Вестерн</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Описание:</label>
+                    <input type="text" id="description" th:field="*{description}" class="form-control" maxlength="1000">
+                </div>
+
+                <div class="mb-3">
+                    <label for="duration" class="form-label">Длительность:</label>
+                    <input type="number" id="duration" th:field="*{duration}" class="form-control" min="1" step="1" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Рейтинг:</label>
+                    <input type="number" id="rating" th:field="*{rating}" class="form-control" min="0" max="10" step="0.1">
+                </div>
+
+                <div class="mb-3">
+                    <label for="year" class="form-label">Год:</label>
+                    <input type="number" id="year" th:field="*{year}" class="form-control" min="1900" max="2024">
+                </div>
+
+                <div class="mb-3">
+                    <label for="country" class="form-label">Страна производства:</label>
+                    <input type="text" id="country" th:field="*{country}" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Цена:</label>
+                    <input type="number" id="price" th:field="*{price}" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="image_file" class="form-label">Обложка:</label>
+                    <input type="file" id="image_file" name="image_file" class="form-control" onchange="previewImage(event)">
+                </div>
+
+                <div class="mb-3">
+                    <div>
+                        <img id="image_preview" src="#" alt="Preview" style="max-width: 60%; height: auto; display: none; border-radius: 5px;">
+                        <img id="current_image" th:if="${movie.image}" th:src="@{/images/{image}(image=${movie.image})}" alt="Current Image" style="max-width: 60%; height: auto; border-radius: 5px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container" style="display: flex; justify-content: space-between;">
+            <a href="/admin/database" class="btn btn-white-orange">Назад</a>
+            <button type="submit" class="btn btn-orange-white">Сохранить изменения</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('image_preview');
+            var currentImage = document.getElementById('current_image');
+
+            currentImage.style.display = 'none';
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+</body>
+</html>

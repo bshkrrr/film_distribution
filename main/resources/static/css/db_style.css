@@ -1,0 +1,27 @@
+.table img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+.table {
+    width: 100%;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+.table th.usual-text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #555;
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+}

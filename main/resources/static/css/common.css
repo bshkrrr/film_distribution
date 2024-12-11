@@ -1,0 +1,116 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    margin-bottom: 20px;
+}
+.custom-navbar-brand {
+    color: #FF6A00FF;
+    font-weight: bold;
+    text-decoration: none;
+}
+.custom-navbar-brand:hover {
+    color: #FF6A00FF;
+    text-decoration: none;
+}
+.container-fluid {
+    justify-content: center;
+    width: 100%;
+}
+/*Кнопки*/
+.btn-white-orange {
+    position: relative;
+    color: #ff9800;
+    border: 2px solid #ff9800;
+    background-color: transparent;
+    margin-top: auto;
+    padding: 10px 20px;
+}
+.btn-white-blue{
+    position: relative;
+    color: #1b4d80;
+    border: 2px solid #1b4d80;
+    background-color: transparent;
+    margin-top: auto;
+    padding: 10px 20px;
+}
+.btn-blue-white {
+    position: relative;
+    color: #ffffff;
+    background-color: #1b4d80;
+    border: 2px solid #1b4d80;
+    margin-top: auto;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+.btn-orange-white {
+    position: relative;
+    color: #ffffff;
+    background-color: #ff6a00;
+    border: 2px solid #ff6a00;
+    margin-top: auto;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.btn-outline-orange:hover {
+    color: white;
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+/*ТЕКСТ*/
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1b4d80;
+    margin-bottom: 20px;
+
+}
+.under-title {
+    color: #686868;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.usual-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #555;
+}
+/*Поиск-фильтрация*/
+.form-inline-hmp{
+    display: flex;
+    flex-direction: column;
+}
+.search-line {
+    width: 90%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-control{
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.col-search{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-filter{
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
